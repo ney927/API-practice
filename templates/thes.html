@@ -1,0 +1,40 @@
+<style>
+  #content{
+    margin: 50px;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neyha</title>
+</head>
+<body>
+  {%block content%}
+  <div id=content>
+    <h2>Welcome to Thesaurus Vibe Times</h2>
+    <h4>Type a word to start your thesarus adventure</h4>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <label for="word">Input you're word here: </label>
+      <input type="text" name="word" id="">
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+    <h3>Word: {{word}}</h3>
+    <h3>Synonyms:</h3>
+    {%for w in syn%}
+    {{w}} <br>
+    {%endfor%}
+    <br>
+    <h3>Antonyms:</h3>
+    {%for w in ant%}
+    {{w}} <br>
+    {%endfor%}
+  </div>  
+  {%endblock%}
+</body>
+</html>
